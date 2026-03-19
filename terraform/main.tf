@@ -12,8 +12,7 @@ provider "azurerm" {
   features {}
 }
 
-# 2. Define the Resource Group
-resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
-  location = "West Europe"
+data "azurerm_storage_account" "existing_sa" {
+  name                = "ashustorage"         # Exact name in Azure
+  resource_group_name = "ashu-resource-group" # RG where it lives
 }
